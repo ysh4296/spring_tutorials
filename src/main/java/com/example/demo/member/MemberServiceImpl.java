@@ -3,7 +3,6 @@ package com.example.demo.member;
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
-    // 생성자를 통해 의존성을 외부에서 주입받음 (Dependancy Injection)
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
