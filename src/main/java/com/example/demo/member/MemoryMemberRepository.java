@@ -1,10 +1,10 @@
 package com.example.demo.member;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MemoryMemberRepository implements MemberRepository {
-    private static Map<Long, Member> store = new HashMap<>(); // store 탄생
+    private static Map<Long, Member> store = new ConcurrentHashMap<>(); // store 탄생
 
     @Override
     public void save(Member member) {
