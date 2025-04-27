@@ -2,6 +2,8 @@ package com.example.demo.member;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.demo.AppConfig;
+import com.example.demo.order.OrderService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,7 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MemberServiceTest {
 
-    private MemberService memberService = new MemberServiceImpl();;
+    AppConfig appConfig = new AppConfig();
+    private MemberService memberService = appConfig.memberService();
 
     @Test
     @DisplayName("회원가입 후 조회 시 동일한 회원이 반환되어야 한다")
