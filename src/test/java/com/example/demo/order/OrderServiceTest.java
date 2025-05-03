@@ -1,17 +1,16 @@
 package com.example.demo.order;
 
 import com.example.demo.AppConfig;
-import com.example.demo.discount.DiscountPolicy;
-import com.example.demo.discount.FixedDiscountPolicy;
-import com.example.demo.discount.RateDiscountPolicy;
 import com.example.demo.member.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class OrderServiceTest {
-    AppConfig appConfig = new AppConfig();
-    private MemberService memberService = appConfig.memberService();
-    private OrderService orderService = appConfig.orderService();
+    ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+    MemberService memberService = ac.getBean("memberService", MemberService.class);
+    OrderService orderService = ac.getBean("orderService", OrderService.class);
 
     @Test
     void 주문하기() {
